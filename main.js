@@ -47,7 +47,12 @@ function addTaskToArray(taskText) {
     timesub:new Date().toLocaleTimeString()
   };
   // Push Task To Array Of Tasks
-  arrayOfTasks.push(task);
+  if(arrayOfTasks.length==0){
+    arrayOfTasks.push(task);
+  }
+  else{
+    arrayOfTasks=[task,...arrayOfTasks]
+  }
   // Add Tasks To Page
   addElementsToPageFrom(arrayOfTasks);
   // Add Tasks To Local Storage
