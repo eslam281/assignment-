@@ -1,7 +1,6 @@
 let input = document.querySelector(".input");
 let submit = document.querySelector(".add");
 let tasksDiv = document.querySelector(".tasks");
-let time;
 // Empty Array To Store The Tasks
 let arrayOfTasks = [];
 
@@ -45,7 +44,7 @@ function addTaskToArray(taskText) {
     id: Date.now(),
     title: taskText,
     completed: false,
-    timesub:time =new Date().toLocaleTimeString()
+    timesub:new Date().toLocaleTimeString()
   };
   // Push Task To Array Of Tasks
   arrayOfTasks.push(task);
@@ -54,10 +53,9 @@ function addTaskToArray(taskText) {
   // Add Tasks To Local Storage
   addDataToLocalStorageFrom(arrayOfTasks);
 }
-
 function addElementsToPageFrom(arrayOfTasks) {
   // Empty Tasks Div
-  tasksDiv.innerHTML = "";
+  tasksDiv.innerHTML = "";  
   // Looping On Array Of Tasks
   arrayOfTasks.forEach((task) => {
     // Create Main Div
@@ -69,7 +67,12 @@ function addElementsToPageFrom(arrayOfTasks) {
     }
     div.setAttribute("data-id", task.id);
     div.appendChild(document.createTextNode(task.title));
-    div.appendChild(document.createTextNode(task.timesub));
+
+    let timesub = document.createElement("ti_sub");
+    timesub.className = "timesubmion";
+    timesub.appendChild(document.createTextNode(task.timesub));
+    div.appendChild(timesub);
+
     // Create Delete Button
     let span = document.createElement("span");
     span.className = "del";
