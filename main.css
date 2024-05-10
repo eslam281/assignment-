@@ -54,7 +54,7 @@
     transition: .3s;
     cursor: pointer;
     border: 1px solid #ccc;  
-    overflow:auto;
+    overflow: auto ;
 }
 .tasks .task:not(:last-child){
     margin-bottom: 15px;
